@@ -6,7 +6,7 @@ export const CartContext = createContext<ContextT>(null)
 
 interface ContextT {
     cart: ProductT[];
-    dispatch: (action: {type: 'add' |'increment' | 'decrement' | 'remove', payload: ProductT}) => void
+    dispatch: (action: {type: 'add' |'increment' | 'decrement' | 'remove', payload: ProductT | number}) => void
 }
 
 

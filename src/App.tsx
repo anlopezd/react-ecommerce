@@ -8,23 +8,31 @@ import { ProductT } from "./interfaces";
 import { CartProvider } from "./context/Cart";
 import Header from "./components/Header";
 
-const cartReducer = (state, action) => {
+const cartReducer = (
+  state: ProductT[],
+  action: {
+    type: "add" | "remove" | "increment" | "decrement";
+    payload: ProductT | number;
+  }
+): ProductT[] => {
   switch (action.type) {
     case "add":
-      return [...state, action.payload];
+      return [...state, action.payload as ProductT];
     case "remove":
-      return state.filter((cartItem) => cartItem.id !== action.payload);
+      return state.filter(
+        (cartItem: ProductT) => cartItem.id !== action.payload
+      );
 
     case "increment":
-      return state.map((cartItem) =>
+      return state.map((cartItem: ProductT) =>
         cartItem.id === action.payload
-          ? { ...cartItem, quantity: cartItem.quantity + 1 }
+          ? { ...cartItem, quantity: cartItem.quantity ?? 0 + 1 }
           : cartItem
       );
     case "decrement":
-      return state.map((cartItem) =>
+      return state.map((cartItem: ProductT) =>
         cartItem.id === action.payload
-          ? { ...cartItem, quantity: Math.max(0, cartItem.quantity - 1) }
+          ? { ...cartItem, quantity: Math.max(0, cartItem.quantity ?? 0 - 1) }
           : cartItem
       );
 
@@ -44,7 +52,7 @@ function App() {
     <BrowserRouter>
       <CartProvider cart={cart} dispatch={dispatch}>
         <ProductProvider>
-            <Header />
+          <Header />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/product/:id" element={<Detail />} />

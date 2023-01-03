@@ -69,7 +69,7 @@ const Cart = () => {
                 +
               </button>
             </div>
-            <p>${item?.quantity * item.price}</p>
+            <p>${item?.quantity ?? 0 * item.price}</p>
 
             <button
               onClick={() => remove(item.id)}
