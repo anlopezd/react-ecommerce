@@ -25,7 +25,7 @@ const Detail = () => {
   const params = useParams();
 
   const currentProduct: ProductT | undefined = products.find(
-    (product) => product.id == params.id
+    (product) => product.id === Number(params?.id)
   );
 
   useEffect(() => {
@@ -49,7 +49,7 @@ const Detail = () => {
         ...currentProduct,
         quantity: product.quantity,
         size: product.size,
-      },
+      } as ProductT,
     });
 
     setShowPopUp(true);
@@ -65,12 +65,14 @@ const Detail = () => {
 
   return (
     <div className="h-screen pt-20 w-4/5 mx-auto flex-col flex lg:flex-row gap-4 justify-between">
-      <ItemAdded
-        product={currentProduct}
-        quantity={product.quantity}
-        show={showPopUp}
-        closePopUp={() => setShowPopUp(false)}
-      />
+      {currentProduct ? (
+        <ItemAdded
+          product={currentProduct}
+          quantity={product.quantity}
+          show={showPopUp}
+          closePopUp={() => setShowPopUp(false)}
+        />
+      ) : null}
 
       <div className="lg:w-3/5 w-full flex gap-10 items-center lg:items-start flex-col lg:flex-row">
         <div className="border-2 flex items-center justify-center w-40 h-56 p-2">

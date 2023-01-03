@@ -2,7 +2,7 @@ import { createContext } from 'react';
 import { ProductT } from '../interfaces';
 
 
-export const CartContext = createContext<ContextT>(null)
+export const CartContext = createContext<ContextT>({cart: [], dispatch: ()=> null})
 
 interface ContextT {
     cart: ProductT[];
@@ -13,7 +13,7 @@ interface ContextT {
 interface CartProviderT {
     children: React.ReactNode;
     cart: ProductT[];
-    dispatch: ()=> void
+    dispatch: any
 }
 
 export const CartProvider = ({ children, cart, dispatch }: CartProviderT) => {
