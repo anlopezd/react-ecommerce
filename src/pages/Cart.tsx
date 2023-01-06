@@ -41,9 +41,6 @@ const Cart = () => {
     </div>
     ) : null}
     <BuyCart setSuccessMessage={startSuccessMessage} show={showPopUp} closePopUp={()=> setShowPopUp(false)} />
-    
-
-
       <div className="w-full space-y-2">
         <div className="w-full grid grid-cols-5 px-10 border-b py-2">
           <p>Product</p>
