@@ -7,7 +7,7 @@ const Hero = () => {
         <div className='flex items-center justify-center h-full w-full flex-col gap-y-3'>
             <h2 className='text-white text-4xl font-semibold'>Men Clothes</h2>
             <p className='text-white text-2xl'>Do you want to look better?</p>
-            <a href="#" className='uppercase border border-red-500 hover:bg-red-500 transition-all px-2 py-2 text-white hover:bg'>Shop now!</a>
+            <a href="#shop" className='uppercase border border-red-500 hover:bg-red-500 transition-all px-2 py-2 text-white hover:bg'>Shop now!</a>
         </div>
         </div>
       
