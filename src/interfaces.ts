@@ -6,7 +6,7 @@ export interface ProductT {
   price: number;
   rating: RatingT;
   title: string;
-  quantity?: number;
+  quantity: number;
   size?: string;
 }
 
