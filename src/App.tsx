@@ -11,7 +11,7 @@ import Header from "./components/Header";
 const cartReducer = (
   state: ProductT[],
   action: {
-    type: "add" | "remove" | "increment" | "decrement" | 'clear';
+    type: "add" | "remove" | "increment" | "decrement" | "clear";
     payload: ProductT | number;
   }
 ): ProductT[] => {
@@ -26,18 +26,18 @@ const cartReducer = (
     case "increment":
       return state.map((cartItem: ProductT) =>
         cartItem.id === action.payload
-          ? { ...cartItem, quantity: cartItem.quantity ?? 0 + 1 }
+          ? { ...cartItem, quantity: cartItem.quantity + 1 }
           : cartItem
       );
     case "decrement":
       return state.map((cartItem: ProductT) =>
         cartItem.id === action.payload
-          ? { ...cartItem, quantity: Math.max(0, cartItem.quantity ?? 0 - 1) }
+          ? { ...cartItem, quantity: Math.max(0, cartItem.quantity - 1) }
           : cartItem
       );
 
-      case "clear":
-      return []
+    case "clear":
+      return [];
 
     default:
       break;
