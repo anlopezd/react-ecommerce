@@ -11,7 +11,7 @@ import Header from "./components/Header";
 const cartReducer = (
   state: ProductT[],
   action: {
-    type: "add" | "remove" | "increment" | "decrement";
+    type: "add" | "remove" | "increment" | "decrement" | 'clear';
     payload: ProductT | number;
   }
 ): ProductT[] => {
@@ -35,6 +35,9 @@ const cartReducer = (
           ? { ...cartItem, quantity: Math.max(0, cartItem.quantity ?? 0 - 1) }
           : cartItem
       );
+
+      case "clear":
+      return []
 
     default:
       break;
