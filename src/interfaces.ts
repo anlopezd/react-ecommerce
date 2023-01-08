@@ -21,3 +21,19 @@ export interface ItemAddedPopUpT {
   show: boolean;
   closePopUp: () => void;
 }
+
+export interface ContextT {
+  cart: ProductT[];
+  dispatch: (action: ActionCart) => void;
+}
+
+export interface CartProviderT {
+  children: JSX.Element;
+}
+
+export type ActionCart =
+  | { type: "add"; payload: ProductT }
+  | { type: "remove"; payload: number }
+  | { type: "increment"; payload: number }
+  | { type: "decrement"; payload: number }
+  | { type: "clear" };
