@@ -1,6 +1,5 @@
-import React from "react";
 import { useContext } from "react";
-import { CartContext } from "../../context/Cart";
+import { CartContext } from "../../context/CartProvider";
 
 interface Props {
   show: boolean;
@@ -12,7 +11,7 @@ const BuyCart = ({ show, closePopUp, setSuccessMessage }: Props) => {
   const { cart, dispatch } = useContext(CartContext);
 
   const buyCart = () => {
-    dispatch({type: 'clear', payload: []})
+    dispatch({type: 'clear'})
     closePopUp()
     setSuccessMessage()
 }

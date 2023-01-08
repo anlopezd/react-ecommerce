@@ -1,11 +1,9 @@
 import React from "react";
 
 const Contact = () => {
-
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-      event.preventDefault()
-  }
-
+    event.preventDefault();
+  };
 
   return (
     <section id="contact" className="my-20">
@@ -15,27 +13,48 @@ const Contact = () => {
         <div className="w-1/2 bg-[#a8b2a3]">
           <form onSubmit={onSubmit} className="px-5 py-5 space-y-2">
             <div className="flex flex-col">
-              <label  htmlFor="name">Name</label>
-              <input required className="border border-black px-2 py-1" type="text" id="name" />
+              <label htmlFor="name">Name</label>
+              <input
+                required
+                className="border border-black px-2 py-1"
+                type="text"
+                id="name"
+              />
             </div>
 
             <div className="flex flex-col">
-              <label  htmlFor="last">lastName</label>
-              <input required className="border border-black px-2 py-1" type="text" id="last" />
+              <label htmlFor="last">lastName</label>
+              <input
+                required
+                className="border border-black px-2 py-1"
+                type="text"
+                id="last"
+              />
             </div>
 
             <div className="flex flex-col">
-              <label  htmlFor="email">Email</label>
-              <input required className="border border-black px-2 py-1" type="text" id="email" />
+              <label htmlFor="email">Email</label>
+              <input
+                required
+                className="border border-black px-2 py-1"
+                type="text"
+                id="email"
+              />
             </div>
 
             <div className="flex flex-col">
-              <label  htmlFor="message">Message</label>
-                <textarea className="border border-black resize-none" id="message" name="message" rows={4}></textarea>
+              <label htmlFor="message">Message</label>
+              <textarea
+                className="border border-black resize-none"
+                id="message"
+                name="message"
+                rows={4}
+              ></textarea>
             </div>
 
-            <button type="submit" className="bg-red-500 text-white w-full p-2">Submit</button>
-
+            <button type="submit" className="bg-red-500 text-white w-full p-2">
+              Submit
+            </button>
           </form>
         </div>
 
