@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import BuyCart from "../components/popups/BuyCart";
-import { CartContext } from "../context/Cart";
+import { CartContext } from "../context/CartProvider";
 
 const Cart = () => {
   const { cart, dispatch } = useContext(CartContext);
@@ -83,7 +83,7 @@ const Cart = () => {
                 +
               </button>
             </div>
-            <p>${item?.quantity ?? 0 * item.price}</p>
+            <p>${item?.quantity * item.price}</p>
 
             <button
               onClick={() => remove(item.id)}

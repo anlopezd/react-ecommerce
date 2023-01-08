@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom";
 import { useContext, useEffect } from "react";
-import { ProductContext } from "../context/Products";
+import { ProductContext } from "../context/ProductsProvider";
 import { ProductT } from "../interfaces";
 import { useState } from "react";
 import ItemAdded from "../components/popups/ItemAdded";
-import { CartContext } from "../context/Cart";
+import { CartContext } from "../context/CartProvider";
 
 interface ProductInterface {
   size: string;
